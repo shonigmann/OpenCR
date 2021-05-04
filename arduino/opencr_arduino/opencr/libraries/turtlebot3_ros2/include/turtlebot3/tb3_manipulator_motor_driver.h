@@ -14,43 +14,26 @@
 * limitations under the License.
 *******************************************************************************/
 
-#ifndef TURTLEBOT3_MOTOR_DRIVER_H_
-#define TURTLEBOT3_MOTOR_DRIVER_H_
+#ifndef TB3_MANIPULATOR_MOTOR_DRIVER_H_
+#define TB3_MANIPULATOR_MOTOR_DRIVER_H_
 
-#include <Dynamixel2Arduino.h>
+// #include <Dynamixel2Arduino.h>
+#include <turtlebot3_motor_driver.h>
 
 #define TORQUE_ENABLE 1
 
-enum MotorLocation{
-  LEFT = 0,
-  RIGHT,
-  MOTOR_NUM_MAX
-};
 
-enum VelocityType{
-  LINEAR = 0,
-  ANGULAR,
-  TYPE_NUM_MAX
-};
-
-enum JointLocation{
-  JOINT1 = 0,
-  JOINT2,
-  JOINT3,
-  JOINT4,
-  GRIPPER,
-  JOINT_NUM_MAX
-};
-
-enum JointID{
+enum ManipulatorMotorLocations{
   JOINT1 = 11,
   JOINT2,
   JOINT3,
   JOINT4,
-  GRIPPER
+  GRIPPER_JOINT,
+  MANIPULATOR_MOTOR_MAX = 5
 };
 
-class Turtlebot3MotorDriver
+
+class Tb3ManipulatorMotorDriver: public Turtlebot3MotorDriver
 {
  public:
   Turtlebot3MotorDriver();
@@ -80,4 +63,4 @@ class Turtlebot3MotorDriver
   bool torque_;
 };
 
-#endif // TURTLEBOT3_MOTOR_DRIVER_H_
+#endif // TB3_MANIPULATOR_MOTOR_DRIVER_H_
